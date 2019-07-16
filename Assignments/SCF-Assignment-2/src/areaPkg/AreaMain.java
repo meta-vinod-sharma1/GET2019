@@ -10,30 +10,43 @@ public class AreaMain {
 		Circle circleObj = new Circle();
 		Triangle triangleObj = new Triangle();
 		Shape shapeObj;
-		
+		int choice = 0;
 		try{
-			System.out.println("\n\t\t\tRectangel Area:");
-			shapeObj = rectangleObj;
-			shapeObj.setDimension();
-			System.out.println("\t Area of Rectangle : " + shapeObj.getArea());
-			
-			System.out.println("\n\t\t\tSquare Area:");
-			shapeObj = squareObj;
-			shapeObj.setDimension();
-			System.out.println("\t Area of Square : " + shapeObj.getArea());
-			
-			System.out.println("\n\t\t\tCircle Area:");
-			shapeObj = circleObj;
-			shapeObj.setDimension();
-			System.out.println("\t Area of Circle : " + shapeObj.getArea());
-			
-			System.out.println("\n\t\t\tTriangle Area:");
-			shapeObj = triangleObj;
-			shapeObj.setDimension();
-			System.out.println("\t Area of Triangle : " + shapeObj.getArea());
-
+			do{
+				System.out.println("Enter Your choice");
+				System.out.println("1.Rectangel Area\n2.Square Area\n3.Circle Area\n4.Triangle Area\n5.Exit");
+				choice= inputObj.nextInt();
+				switch(choice){
+				case 1:
+					shapeObj = rectangleObj;
+					shapeObj.setDimension();
+					System.out.println("\t Area of Rectangle : " + shapeObj.getArea());
+					break;
+				case 2:
+					shapeObj = squareObj;
+					shapeObj.setDimension();
+					System.out.println("\t Area of Square : " + shapeObj.getArea());
+					break;
+				case 3:
+					shapeObj = circleObj;
+					shapeObj.setDimension();
+					System.out.println("\t Area of Circle : " + shapeObj.getArea());
+					break;
+				case 4:
+					shapeObj = triangleObj;
+					shapeObj.setDimension();
+					System.out.println("\t Area of Triangle : " + shapeObj.getArea());
+					break;
+				case 5:
+					break;
+				default :
+					System.out.println(" Invali Choice !!");
+				}
+			}while(choice!=5);
+		
 		}catch(InputMismatchException e){
-			System.out.println("Please enter only numbers not characters");
+			System.out.println("Please enter only Integer Values !! Try Again");
+			main(args);
 		}catch(ArithmeticException e){
 			System.out.println("Exception : " + e);
 		}

@@ -46,6 +46,8 @@ public class StringOperationMain {
 					str = scannerObj.nextLine();
 					System.out.println("\nResult : " + StringOperation.findLargestWord(str));
 					break;
+				case 5:
+					break;
 				default :
 					System.out.println("Invalid Choice");
 					
