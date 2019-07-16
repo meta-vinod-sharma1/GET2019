@@ -26,6 +26,60 @@ public class JobScheduler {
 		}
 		
 	}
+	/**
+	 * 
+	 * @param processNumber processor number 
+	 * @return completion time for that processor
+	 */
+	public int completionTime(int processNumber){
+			return processList.get(processNumber).endTime;	
+	}
+	
+	/**
+	 * 
+	 * @param processNumber processor number
+	 * @return turn Around time for that processor
+	 */
+	public int turnAroundTime(int processNumber){
+		return processList.get(processNumber).endTime - processList.get(processNumber).arrivalTime;
+	}
+	
+	/**
+	 * 
+	 * @param processNumber processor number
+	 * @return waiting Time for that processor 
+	 */
+	public int waitingTime(int processNumber){
+		return processList.get(processNumber).startTime - processList.get(processNumber).arrivalTime;
+	}
+	
+	/**
+	 * 
+	 * @return maximum waiting time 
+	 */
+	public int maxWaitingTime(){
+		int maxWaitingTime = 0;
+		for(int i=0; i<processList.size(); i++){
+			if(maxWaitingTime <= waitingTime(i)){
+				maxWaitingTime = waitingTime(i);
+			}
+		}
+		
+		return maxWaitingTime ;
+	}
+	
+	/**
+	 * 
+	 * @return average waiting time
+	 */
+	public int averageWaitingTime(){
+		int avgWaitingTime = 0;
+		for(int i=0; i<processList.size(); i++){
+			avgWaitingTime += waitingTime(i);
+		}
+		
+		return avgWaitingTime;
+	}
 	
 	/**
 	 * Method used to be Print all the times of all process
