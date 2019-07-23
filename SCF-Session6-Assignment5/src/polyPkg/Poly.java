@@ -136,7 +136,7 @@ public final class Poly {
 		System.out.println("----------------------------------------------------------");
 		for(int i=0; i<polynomialArray.length-1; i++){
 			if(polynomialArray[i][0]!=0){
-				System.out.print(polynomialArray[i][0] + "x_" + polynomialArray[i][1] + " + ");
+				System.out.print(polynomialArray[i][0] + "x." + polynomialArray[i][1] + " + ");
 			}
 		}
 		if(polynomialArray[polynomialArray.length-1][0]!=0){

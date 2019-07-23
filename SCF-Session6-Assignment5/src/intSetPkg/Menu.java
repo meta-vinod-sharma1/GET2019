@@ -1,10 +1,13 @@
 package intSetPkg;
 /**
- * This class have a method which used for Menu Options for IntSet class Operations
+ * This class have a method which used for Menu Options for IntSet class Operations and Sparse Matrix Class Operations
  * @author LENOVO
  * @date 21/07/2019
  */
 public class Menu {
+	/**
+	 * Method used to get menu for Integer set Operations
+	 */
 	public void intSetMenu(){
 		System.out.println("Enter Your Choice");
 		System.out.println("1.check a number that it is member of intSet or not?");
@@ -15,7 +18,10 @@ public class Menu {
 		System.out.println("6.Change your Integer Set");
 		System.out.println("7.Exit");
 	}
-
+	
+	/**
+	 * Method used to get menu for Sparse Matrix Operations
+	 */
 	public void polyMenu() {
 		System.out.println("Enter Your Choice");
 		System.out.println("1.Evaluate a value by polynomial");

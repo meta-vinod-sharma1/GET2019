@@ -35,15 +35,23 @@ public class Main {
 					System.out.println("--------------------------------------------------------");
 					break;
 				case 3:
-					System.out.println("--------------------------------------------------------");
+					System.out.println("Please enter details for Polynomial which you want to add");
+					Poly additionObj = null;
+					additionObj = additionObj.addPoly(polyObj, inputPolyObj.setPolyArray());
+					System.out.print("--------------------------------------------------------\nAdded PolyNomial : ");
+					additionObj.displayPoly();
 					System.out.println("--------------------------------------------------------");
 					break;
 				case 4:
 					System.out.println("Please enter details for polinomial which you want to multiply");
+					Poly multiplicationObj = null;
+					multiplicationObj = multiplicationObj.addPoly(polyObj, inputPolyObj.setPolyArray());
 					System.out.print("\n-----------------------------------------------------------");
+					multiplicationObj.displayPoly();
 					System.out.println("----------------------------------------------------------");
 					break;
 				case 5:
+					System.out.println("Please enter New details ");
 					polyObj = inputPolyObj.setPolyArray();
 					break;
 				case 6:

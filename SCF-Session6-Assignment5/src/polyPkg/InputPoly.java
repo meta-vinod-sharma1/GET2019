@@ -1,9 +1,17 @@
 package polyPkg;
-
 import java.util.InputMismatchException;
+/**
+ * This class used to take input from user's for polynomial
+ * @author Vinod
+ * @date 21/07/2019
+ */
 import java.util.Scanner;
 public class InputPoly {
 
+	/**
+	 * Method used to take Input values for PolynomialArray and create a object of Poly class for Polynomial Array
+	 * @return Object of Poly class
+	 */
 	public Poly setPolyArray() {
 		Poly inputPolyObj = null;
 		Scanner inputObj = new Scanner(System.in);
@@ -12,25 +20,23 @@ public class InputPoly {
 			int terms = inputObj.nextInt();
 			int inputArray[][] = new int[terms][2];
 			for(int i=0; i<terms; i++){
-				for(int j =0; j<2; ){
-					try{
+				System.out.println("Term[" + (i+1) + "] :");
+				try{
+					for(int j =0; j<2; j++ ){
 						if(j==0){
-							System.out.println("Please Enter coffecient");
+							System.out.println("coffecient");
 							inputArray[i][0] = inputObj.nextInt();
 						}else{
-							System.out.println("Please Enter Power");
+							System.out.println("Power");
 							inputArray[i][1] = inputObj.nextInt();
 						}
-						j++;
-					}catch(InputMismatchException e){
-						System.out.println("--------------------------------------------------------");
-						System.out.println("Warning : Please enter only integer value !! Try Again");
-						System.out.println("--------------------------------------------------------");
-						inputObj.nextLine();
 					}
-					
+				}catch(InputMismatchException e){
+					System.out.println("--------------------------------------------------------");
+					System.out.println("Warning : Please enter only integer value !! Try Again");
+					System.out.println("--------------------------------------------------------");
+					inputObj.nextLine();
 				}
-				
 			}
 			inputPolyObj = new Poly(inputArray);
 		}catch(InputMismatchException e){
