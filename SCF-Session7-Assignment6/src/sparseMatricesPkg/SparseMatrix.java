@@ -1,18 +1,34 @@
 package sparseMatricesPkg;
 
 import java.util.ArrayList;
+/**
+ * This class have Operations method of matrix by using them we can find symmetric,Transpose and can add another matrix and can multiply.
+ * @author Vinod
+ * @date 22/07/2019
+ */
 
 public final class SparseMatrix {
 	private final int row;
 	private final int col;
-	private final ArrayList<Node> matrix;
 	
+	//Non-zero values of a matrix
+	private final ArrayList<Node> matrix;
+	/**
+	 * Contractor used to set all instance of SparseMatrix class
+	 * @param row row-size of matrix
+	 * @param col col-size of matrix
+	 * @param matrix ArrayList of User's non-zero input
+	 */
 	public SparseMatrix(int row, int col, ArrayList<Node> matrix){
 		this.row = row;
 		this.col = col;
 		this.matrix = matrix;
 	}
 	
+	/**
+	 * Method used to find transpose matrix of matrix
+	 * @return Object of SparseMatrix which have transpose matrix 
+	 */
 	public SparseMatrix transposeMatrix(){
 		
 		ArrayList<Node> transposeMatrix = new ArrayList<Node>();
@@ -25,6 +41,11 @@ public final class SparseMatrix {
 		
 	}
 	
+	/**
+	 * This method used to find whether a matrix is symmetrical or not
+	 * @param Obj SparseMatrix Object 
+	 * @return true if Matrix is Symmetrical otherwise false
+	 */
 	public boolean symmetricMatrix(SparseMatrix Obj){
 		if(row!=col){
 			return false;
@@ -41,8 +62,14 @@ public final class SparseMatrix {
 		return true;
 	}
 	
+	/**
+	 * This method used to get addition of two matrices 
+	 * @param ObjOne firstMatrix Object of SparseMatrix
+	 * @param ObjTwo SecondMatrix Object of SparseMatrix
+	 * @return Addition Matrix Object of SparseMatrix
+	 */
 	public SparseMatrix addMatrices(SparseMatrix ObjOne, SparseMatrix ObjTwo){
-		SparseMatrix addObj = null;
+		SparseMatrix additionObj = null;
 		if(ObjOne.row!=ObjTwo.row || ObjOne.col!=ObjTwo.col){
 			System.out.println("Matrices Can't add because row and column not similar");
 		}else{
@@ -58,32 +85,41 @@ public final class SparseMatrix {
 					}
 				}
 			}
-			addObj = new SparseMatrix(row,col,addList);
+			additionObj = new SparseMatrix(row,col,addList);
 		}
-		return addObj;
+		return additionObj;
 	}
-	public SparseMatrix multiplyMatrix(SparseMatrix Obj){
+	/**
+	 * This method used to get Multiplication of two matrices
+	 * @param Obj1 firstMatrix Object
+	 * @param Obj2 SeconfMatrix Object
+	 * @return multiplication matrix Object
+	 */
+	public SparseMatrix multiplyMatrix(SparseMatrix Obj1, SparseMatrix Obj2){
 		SparseMatrix multiplyObj = null;
-		if(col!=Obj.row){
+		if(Obj1.col!=Obj2.row){
 			System.out.println("Matrices can't multiply because column of first matrix and row of 2nd matrix is not same");
 		}else{
 			ArrayList<Node> multiplyList = new ArrayList<Node>();
-			for(int indexRow=0; indexRow<row; indexRow++){
-				for(int indexCol=0; indexCol<col; indexCol++){
+			for(int i=0; i<Obj1.row; i++){
+				for(int q=0; q<Obj2.col; q++){
+					int sum = 0;
+					for(int j=0;j<Obj1.col; j++){
+						sum += Obj1.valueAtRowCol(i,j, Obj1.matrix) * Obj2.valueAtRowCol(j, q, Obj2.matrix);
+					}
+					Node node = new Node(i,q,sum);
+					multiplyList.add(node);
 				}
 			}
-			multiplyObj = new SparseMatrix(row,col,multiplyList);
+			multiplyObj = new SparseMatrix(Obj1.row,Obj2.col,multiplyList);
 		}
 		
 		return multiplyObj;
 		
 	}
-	
-	
-	
-	
-	
-	
+	/**
+	 * This method Used to display sparse matrix
+	 */
 	public void displayMatrix(){
 		System.out.println("--------------------------------------------------------");
 		for(int i=0; i<row; i++){
@@ -97,12 +133,19 @@ public final class SparseMatrix {
 		
 	}
 	
-	public int valueAtRowCol(int row, int col, ArrayList<Node> matrixList){
+	/**
+	 * This method used to get value of Matrix at given row and col
+	 * @param row row-size of matrix
+	 * @param col column size of matrix
+	 * @param matrix ArrayList of non-zero values of matrix
+	 * @return value at [row][column] of matrix
+	 */
+	public int valueAtRowCol(int row, int col, ArrayList<Node> matrix){
 		int value = 0;
-		int sizeOfList = matrixList.size();
+		int sizeOfList = matrix.size();
 		for(int i=0; i<sizeOfList;i++){
-			if(matrixList.get(i).row==row && matrixList.get(i).col==col){
-				value = matrixList.get(i).value;
+			if(matrix.get(i).row==row && matrix.get(i).col==col){
+				value = matrix.get(i).value;
 			}
 		}
 		return value;

@@ -3,7 +3,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * This class used to operate IntSet class and it's methods it contains Menu class also
+ * This class used to operate SparseMatrix class and it's methods it contains Menu class also which provide Options of menu for matrix
  * @author Vinod
  * @date 21/07/2019
  */
@@ -12,7 +12,8 @@ public class Main {
 		Menu menuObj = new Menu();
 		InputMatrix inputMatrixObj = new InputMatrix();
 		Scanner inputObj = new Scanner(System.in);
-		// setting the main object SparseMatrix class
+		
+		//Creating Object of SparseMatrix by calling method inputMatrix() of InputMatrix class  
 		SparseMatrix sparseMatrixObj = inputMatrixObj.inputMatrix();
 		int choice = 0;
 		do{
@@ -26,9 +27,9 @@ public class Main {
 					break;
 				case 2:
 					if(sparseMatrixObj.symmetricMatrix(sparseMatrixObj)==true){
-						System.out.println("Your Output : Matrix is Symmetrical");
+						System.out.println("Your Output : Yes !! Matrix is Symmetrical");
 					}else{
-						System.out.println("Your Output : Matrix is not Symmetrical");
+						System.out.println("Your Output : No !! Matrix is not Symmetrical");
 					}
 					break;
 				case 3:
@@ -37,6 +38,14 @@ public class Main {
 					addObj = sparseMatrixObj.addMatrices(sparseMatrixObj,addObj);
 					if(addObj != null){
 						addObj.displayMatrix();
+					}
+					break;
+				case 4:
+					System.out.println("Please enter row and column for matrix which you want multiply ");
+					SparseMatrix multiplyObj = inputMatrixObj.inputMatrix();
+					multiplyObj = sparseMatrixObj.multiplyMatrix(sparseMatrixObj, multiplyObj);
+					if(multiplyObj != null){
+						multiplyObj.displayMatrix();
 					}
 					break;
 				case 6: 

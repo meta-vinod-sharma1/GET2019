@@ -1,5 +1,10 @@
 package sparseMatricesPkg;
 
+/**
+ * This class used to make non-zero element of Sparse matrix
+ * @author Vinod
+ * @date 22/07/2019
+ */
 public class Node {
 	
 	public int row;
