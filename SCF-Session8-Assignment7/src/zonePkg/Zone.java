@@ -19,12 +19,13 @@ public class Zone {
 		this.hasCanteen = hasCanteen;
 	}
 	
-	public void addCage(String animalType, int animalLimit){
-		if(cageList.size() <= cageLimit){
+	public boolean addCage(String animalType, int animalLimit){
+		boolean flag = false;
+		if(cageList.size()<cageLimit){
 			Cage cage = new Cage(animalType,animalLimit);
 			cageList.add(cage);	
-		}else{
-			System.out.println("Zone don't have space for new Cage !! Please try in another Zone");
+			flag = true;
 		}
+		return flag;
 	}
 }

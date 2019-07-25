@@ -12,9 +12,9 @@ public class Zoo {
 	
 	public void addZone(){
 		//first zone added in Zoo
-		Zone zone1 = new Zone("Zone1", "Mammal",zoneId++, 5, true, false);
+		Zone zone1 = new Zone("Zone1", "Mammal",zoneId++, 4, true, false);
 		zone1.addCage("Tiger",1);
-		zone1.addCage("Lion",1);
+		zone1.addCage("Lion",2);
 		
 		//first zone added in Zoo
 		Zone zone2 = new Zone("Zone2", "Reptile",zoneId++, 3, true, false);
@@ -23,8 +23,8 @@ public class Zoo {
 			
 		//first zone added in Zoo
 		Zone zone3 = new Zone("Zone3", "Bird",zoneId++, 4, true, false);
-		zone2.addCage("Pigeon", 1);
-		zone2.addCage("Parrot", 1);
+		zone3.addCage("Pigeon", 1);
+		zone3.addCage("Parrot", 1);
 			
 		//first zone added in Zoo
 		Zone zone4 = new Zone("Zone4", "Mammal",zoneId++, 2, true, false);

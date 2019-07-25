@@ -21,22 +21,28 @@ public class Cage {
 		this.capacity = animalLimit;
 		cageId = cageId++;
 	}
-	public void addAnimal(String name, int age, double weight , int id){
+	public boolean addAnimal(String name, int age, double weight , int id){
+		boolean flag = false;
 		Animal animalObj = null;
-		if(animalType == "Lion"){
-			animalObj = new Lion(name , age , weight , id);
-		}else if(animalType == "Tiger"){
-			animalObj = new Tiger(name , age , weight , id);
-		}else if(animalType == "Lizard"){
-			animalObj = new Lizard(name , age , weight , id);
-		}else if(animalType == "Snake"){
-			animalObj = new Snake(name , age , weight , id);
-		}else if(animalType == "Parrot"){
-			animalObj = new Parrot(name , age , weight , id);
-		}else if(animalType == "Piegon"){
-			animalObj = new Pigeon(name , age , weight , id);
+		if(animalList.size() < capacity){
+			if(animalType == "Lion"){
+				animalObj = new Lion(name , age , weight , id);
+			}else if(animalType == "Tiger"){
+				animalObj = new Tiger(name , age , weight , id);
+			}else if(animalType == "Lizard"){
+				animalObj = new Lizard(name , age , weight , id);
+			}else if(animalType == "Snake"){
+				animalObj = new Snake(name , age , weight , id);
+			}else if(animalType == "Parrot"){
+				animalObj = new Parrot(name , age , weight , id);
+			}else if(animalType == "Pigeon"){
+				animalObj = new Pigeon(name , age , weight , id);
+			}
+			animalList.add(animalObj);
+			flag = true;
 		}
-		animalList.add(animalObj);		
+		
+		return flag;
 	}
 	public ArrayList<Animal> getAnimalList() {
 		return animalList;
