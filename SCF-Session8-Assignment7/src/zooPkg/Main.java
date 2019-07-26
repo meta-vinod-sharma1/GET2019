@@ -88,13 +88,21 @@ public class Main {
 						if(0<choiceAnimal && choiceAnimal< 7){
 							String animalType = animals[choiceAnimal-1][0];
 							String category = animals[choiceAnimal-1][1];
-							System.out.println("Enter Animal capacity for cage : ");
-							int animalLimit = inputObj.nextInt();
-							if(operationObj.addCageOperation(category, animalType , animalLimit) == true){
-								System.out.println("Successful !! Your Cage is Succesfully Added");
+							zoneObj = operationObj.isZone(category);
+							if(zoneObj != null){
+								System.out.println("Enter Animal capacity for cage : ");
+								int animalLimit = inputObj.nextInt();
+								if(operationObj.addCageOperation(category, animalType , animalLimit) == true){
+									System.out.println("Successful !! Your Cage is Succesfully Added");
+								}else{
+									System.out.println("Failed !! Zone with category " + animals[choiceAnimal-1][1] + " don't have space for cage");
+								}
 							}else{
-								System.out.println("Failed !! Zone with category " + animals[choiceAnimal-1][1] + " don't have space for cage");
+								System.out.println("Failed !! Zoo don't have Zone with Category " + category + " So we can't animal type " + animalType);
 							}
+							
+						}else{
+							System.out.println("Invalid Choice");
 						}
 					}
 					System.out.println("---------------------------------------------------------------------------------------------------------------");
