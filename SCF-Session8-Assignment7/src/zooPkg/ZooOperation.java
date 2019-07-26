@@ -31,12 +31,9 @@ public class ZooOperation {
 			if(zooObj.zoneList.get(index1).zoneCategory.equals(category)){
 				Zone zoneObj = zooObj.zoneList.get(index1);
 				//Search for Cage
-				System.out.println(zoneObj.cageList.size());
 				for(int index2=0; index2<zoneObj.cageList.size(); index2++){
 					//if cage Type is found
-					System.out.println(" here : " + zoneObj.cageList.get(index2).animalType);
 					if(zoneObj.cageList.get(index2).animalType.equals(animalType)){
-						System.out.println(" here");
 						if(zoneObj.cageList.get(index2).addAnimal(name, age, weight, id)==true){
 							zooObj.totalAnimal++;
 							id++;
@@ -104,9 +101,15 @@ public class ZooOperation {
 		}
 		System.out.println("---------------------------------------------------------------------------------------------------------------");
 	}
-		public void start(){
-			zooObj.addZone();
-		}
+	
+	/**
+	 * This method used to once when program start it set the All zone in zoo
+	 */
+	public boolean addZoneOperation(String category, int cageLimit, boolean hasPark, boolean hasCanteen){
+		zooObj.addZone(category, cageLimit, hasPark, hasCanteen);
+		return true;
+	}
+	
 	/**
 	 * This method used to add a cage in zone
 	 * @param category category of animal 
@@ -127,12 +130,36 @@ public class ZooOperation {
 			
 		return flag;
 	}
+	
 	/**
 	 * This method used to compute total animal in zoo
 	 * @return
 	 */
 	public int totalAnimal() {
 		return zooObj.totalAnimal;
+	}
+	
+	public Zone isZone(String category){
+		Zone zone = null;
+		boolean flag = false;
+		for(int i=0; i<zooObj.zoneList.size(); i++){
+			if(zooObj.zoneList.get(i).zoneCategory.equals(category)){
+				zone = zooObj.zoneList.get(i);
+				break;
+			}
+		}
+		return zone;
+	}
+	
+	public Cage isCage(Zone Obj, String animalType){
+		Cage cage = null;
+		
+		for(int i = 0; i< Obj.cageList.size(); i++ ){
+			if(Obj.cageList.get(i).animalType.equals(animalType)){
+				cage = Obj.cageList.get(i);
+			}
+		}
+		return cage;
 	}
 
 }

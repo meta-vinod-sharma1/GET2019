@@ -7,36 +7,16 @@ import zonePkg.Zone;
 	
 public class Zoo {
 	int totalAnimal = 0;
+	int totalZone = 0;
 	static int  zoneId = 1;	
 	public ArrayList<Zone> zoneList = new ArrayList<Zone>();
 	
-	public void addZone(){
+	public void addZone(String category, int cageLimit, boolean hasPark, boolean hasCanteen){
 		//first zone added in Zoo
-		Zone zone1 = new Zone("Zone1", "Mammal",zoneId++, 4, true, false);
-		zone1.addCage("Tiger",1);
-		zone1.addCage("Lion",2);
-		
-		//first zone added in Zoo
-		Zone zone2 = new Zone("Zone2", "Reptile",zoneId++, 3, true, false);
-		zone2.addCage("Lizard", 1);
-		zone2.addCage("Snake", 1);
-			
-		//first zone added in Zoo
-		Zone zone3 = new Zone("Zone3", "Bird",zoneId++, 4, true, false);
-		zone3.addCage("Pigeon", 1);
-		zone3.addCage("Parrot", 1);
-			
-		//first zone added in Zoo
-		Zone zone4 = new Zone("Zone4", "Mammal",zoneId++, 2, true, false);
-		zoneList.add(zone1);
-		zoneList.add(zone2);
-		zoneList.add(zone3);
-		zoneList.add(zone4);
+		Zone zone = new Zone(category, zoneId++ , cageLimit, hasPark, hasCanteen);
+		zoneList.add(zone);
+		totalZone++;
 		
 	}
-	
-	public ArrayList<Zone> getZoneList(){
-		return zoneList;
-	}
-	
+
 }

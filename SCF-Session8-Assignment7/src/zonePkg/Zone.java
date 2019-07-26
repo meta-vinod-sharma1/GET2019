@@ -3,15 +3,13 @@ package zonePkg;
 import java.util.ArrayList;
 
 public class Zone {
-	public String name;
 	public String zoneCategory;
 	public int id;
 	public ArrayList<Cage> cageList = new ArrayList<Cage>();
 	public int cageLimit;
 	boolean hasPark;
 	boolean hasCanteen;
-	public Zone(String name, String category, int id, int cageLimit, boolean hasPark, boolean hasCanteen){
-		this.name = name;
+	public Zone(String category, int id, int cageLimit, boolean hasPark, boolean hasCanteen){
 		this.zoneCategory = category;
 		this.id = id;
 		this.cageLimit = cageLimit;
