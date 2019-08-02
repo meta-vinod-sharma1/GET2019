@@ -21,7 +21,7 @@ public class ExcelWrite {
 		int index = 0;
 
 		try {
-			WritableWorkbook workbook = Workbook.createWorkbook(new File("C:\\Users\\Vinod\\Documents\\AllocateStudentList.xls"));
+			WritableWorkbook workbook = Workbook.createWorkbook(new File("AllocateStudentList.xls"));
 			WritableSheet workbookSheet = workbook.createSheet("sheet1", 0);
 			int index1;
 

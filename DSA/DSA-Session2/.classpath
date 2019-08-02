@@ -3,6 +3,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="C:/Users/Vinod/Downloads/jexcelapi_2_6_12/jexcelapi/jxl.jar"/>
+	<classpathentry kind="lib" path="src/session2Pkg/counseling/ProgramList.xls"/>
+	<classpathentry kind="lib" path="src/session2Pkg/counseling/StudentList.xls"/>
+	<classpathentry kind="lib" path="src/lib/jxl.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

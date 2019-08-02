@@ -18,8 +18,8 @@ public class Main {
 
 		// Reading xls files 
 		try {
-			readObj.readStudents("C:\\Users\\Vinod\\Documents\\work\\Assignments\\DSA-Session2\\src\\session2Pkg\\counseling\\StudentList.xls");
-			readObj.readProgram("C:\\Users\\Vinod\\Documents\\work\\Assignments\\DSA-Session2\\src\\session2Pkg\\counseling\\ProgramList.xls");
+			readObj.readStudents("StudentList.xls");
+			readObj.readProgram("ProgramList.xls");
 
 		} catch (BiffException | IOException e) {
 
