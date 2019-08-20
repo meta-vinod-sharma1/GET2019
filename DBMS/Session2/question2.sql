@@ -98,7 +98,7 @@ SELECT A.id as categoryId, A.name as CategoryName, IFNULL(B.name, 'Top Category'
 FROM category A
 LEFT JOIN category B
 ON A.parent_id = B.id;
-
+ 
 
 
 /* inserting 14 products with diffrent diffrent category with price */
@@ -220,10 +220,15 @@ LEFT JOIN category B
 ON A.category_id = B.id;
 
 /* Display the list of products which don't have any images */
+
 SELECT DISTINCT A.product_id as Id, A.name as Name
 From product A
-INNER JOIN image B
-ON A.product_id = B.product_id;
+WHERE NOT EXISTS(
+    SELECT m.product_id
+    FROM image m
+    WHERE A.product_id = m.product_id
+);
+
 
 /* Display all Id, Title and Parent Category Title for all the Categories listed, sorted by Parent Category Title and then Category Title.
 (If Category is top category then Parent Category Title column should display “Top Category” as value.) */
@@ -233,7 +238,7 @@ FROM category A
 LEFT JOIN category B
 ON A.parent_id = B.id;
 
-/*  Display Id, Title, Parent Category Title of all the leaf Categories (categories which are not parent of any other category) */
+/*  Display Id, Title, Parent Category Title of all the leaf Categories(categories which are not parent of any other category) */
 SELECT A.id as categoryId, A.name as CategoryName, IFNULL(B.name, 'Top Category') as ParentCategory
 FROM category A 
 LEFT JOIN category B
@@ -255,9 +260,10 @@ where A.name = "MI";
 
 
 /* Display the list of Products whose Quantity on hand (Inventory) is under 50 */
-SELECT A.product_id, A.name, IFNULL(B.quantity, 0)
+SELECT A.product_id, A.name, IFNULL(B.quantity, 0) AS quantity
 FROM product A
 LEFT JOIN stock B
-ON A.product_id = B.product_id;
+ON A.product_id = B.product_id
+WHERE B.quantity <= 50;
 
 
