@@ -1,11 +1,19 @@
 package com.jdbcPkg;
 
+import java.awt.List;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
+/**
+ * This class contain operations and provide console to do operations on database.
+ * @author Vinod
+ * @date 23/08/2019
+ *
+ */
 public class MAIN {
 
 	public static void main(String[] args){
@@ -26,7 +34,16 @@ public class MAIN {
 						System.out.println("Please Enter user id");
 						int userId = inputObj.nextInt();
 						System.out.println(view);
-						db.ordersOfUser(userId);
+						ArrayList<Order> orderList = db.ordersOfUser(userId);
+						if(orderList == null){
+							System.out.println("This User don't have orders which is in Shipped State");
+						}else{
+							System.out.println("UserId\tOrderDate\tOrderTotal");
+							for(int index = 0; index< orderList.size(); index++){
+								System.out.format("%d%s%s%s%d", orderList.get(index).getId(),"       ",orderList.get(index).getDate(),"      ",orderList.get(index).orderTotal());
+								System.out.println();
+							}
+						}
 						break;
 					case 2:
 						int count = db.insertImage();
@@ -38,7 +55,16 @@ public class MAIN {
 						db.deleteNotOrderedProduct();
 						break;
 					case 4:
-						db.topCategory();
+						ArrayList<Category> categoryList = db.topCategory();
+						if(categoryList == null){
+							System.out.println("NO Category Found");
+						}else{
+							System.out.println("CategoryName \t No of Child");
+							for(int index=0; index<categoryList.size(); index++){
+								System.out.format("%10s%s%d", categoryList.get(index).getName(),"         " ,categoryList.get(index).getnoOfChild());
+								System.out.println();
+							}
+						}
 						break;
 					case 5:
 						default:

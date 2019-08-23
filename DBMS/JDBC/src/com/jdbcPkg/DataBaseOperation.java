@@ -5,23 +5,34 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
+/**
+ * This class have methods of operations on database like fetch orders details, setConnectins etc.
+ * @author Vinod
+ *
+ */
 public class DataBaseOperation {
 
-
-	private final String jdbcDriver = "com.mysql.cj.jdbc.Driver";
-	private final String databaseName = "store_front";
-	private final String url = "jdbc:mysql://localhost/" + databaseName;
-	private final String userName = "root";
-	private final String pass = "mysql1228";
 
 	Connection connectionObj = null;
 	PreparedStatement statementObj = null;
 	Scanner inputObj = new Scanner(System.in);
-
+	
+	/**
+	 * This method used to set connections with the database internally in this class
+	 * @return true if connection successfully connect otherwise false 
+	 */
 	private boolean setConnection(){
+		
+		final String jdbcDriver = "com.mysql.cj.jdbc.Driver";
+		final String databaseName = "store_front";
+		final String url = "jdbc:mysql://localhost/" + databaseName;
+		final String userName = "root";
+		final String pass = "mysql1228";
 
 		try{
 			Class.forName(jdbcDriver);
@@ -39,9 +50,15 @@ public class DataBaseOperation {
 		}
 		return false;
 	}
-
-	public void ordersOfUser(int shopperId){
-
+	
+	/**
+	 * This method used to retrieve details of Order of given shopperId which are in the shipped state
+	 * @param shopperId 
+	 * @return ArrayList of Orders object
+	 */
+	public ArrayList<Order> ordersOfUser(int shopperId){
+		
+		ArrayList<Order> orderList = null;
 		if(setConnection()){
 			try{
 
@@ -51,13 +68,11 @@ public class DataBaseOperation {
 						" ORDER BY orderDate"; 
 				statementObj  = connectionObj.prepareStatement(sql);
 				ResultSet result = statementObj.executeQuery(sql);
-				
-				if (result.next() == false){
-					System.out.println("ResultSet in empty");
-				}else{ 
-							System.out.println("userId\t orderDate\t orderTotal\n");
-						do{ System.out.println(result.getString(1) +"         " + result.getString(2) + "   " + result.getString(3));
-						 }while (result.next());
+				orderList = new ArrayList<Order>();
+				while(result.next()){
+					Order orderObj = new Order(result.getInt(1),result.getString(2),result.getInt(3));
+					
+					orderList.add(orderObj);
 				}
 				statementObj.close();
 				connectionObj.close();
@@ -66,9 +81,17 @@ public class DataBaseOperation {
 
 				System.out.println("Exception : " + e);
 			}
+		}else{
+			System.out.println("Connection Failed");
 		}
+		
+		return orderList;
 	}
-
+	
+	/**
+	 * This method used to insert 5 images for a particular product in the database
+	 * @return affected rows of database
+	 */
 	public int insertImage(){
 		if(setConnection()){
 			try{
@@ -105,20 +128,22 @@ public class DataBaseOperation {
 
 		return -1;
 	}
-
+	
+	/**
+	 * This method used to delete records of  product which not ordered since 1 year from the product table 
+	 * @return rows affected count
+	 */
 	public int deleteNotOrderedProduct(){
 		if(setConnection()){
 			try{
 				connectionObj.setAutoCommit(false);
-				String sql = "DELETE P.product_id " +
-							 "FROM product P " +
-							 "WHERE NOT EXISTS( " +
-							 "SELECT O.product_id " +
-							 "FROM ordersItem O " +
-							 "INNER JOIN ordertable " +
-							 "ON O.orderid = ordertable.orderid " + 
-						     "WHERE O.product_id = P.product_id " +
-							 "&& ordertable.orderDate >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)";
+				String sql = "DELETE FROM product "+ 
+							"WHERE product_id NOT IN( "+
+							    "SELECT DISTINCT ordersItem.product_id "+
+							    "FROM ordersItem "+
+							    "INNER JOIN ordertable "+
+							    "ON ordertable.orderid = ordersItem.orderid "+
+							    "WHERE ordertable.orderDate >= DATE_SUB(CURDATE(),INTERVAL 1 YEAR) )";
 				statementObj = connectionObj.prepareStatement(sql);
 
 
@@ -140,7 +165,13 @@ public class DataBaseOperation {
 		return -1;
 	}
 	
-	public void topCategory(){
+	/**
+	 * This method used to get Category List 
+	 * @return Category List
+	 */
+	public ArrayList<Category> topCategory(){
+		
+		ArrayList<Category> categoryList = null;
 		if(setConnection()){
 			try{
 
@@ -155,15 +186,12 @@ public class DataBaseOperation {
 				statementObj  = connectionObj.prepareStatement(sql);
 				ResultSet result = statementObj.executeQuery(sql);
 				
-				if (result.next() == false){
-					System.out.println("ResultSet in empty");
-				}else{ 
-							System.out.println("Category Name\t CountChild");
-						do{ 
-							System.out.println(result.getString(1) +"         " + result.getString(2));
-						 }while (result.next());
+				categoryList = new ArrayList<Category>();
+				
+				while(result.next()){
+					Category obj = new Category(result.getString(1), result.getInt(2));
+					categoryList.add(obj);
 				}
-
 				statementObj.close();
 				connectionObj.close();
 				
@@ -173,6 +201,7 @@ public class DataBaseOperation {
 				System.out.println("Exception : " + e);
 			}
 		}
+		return categoryList;
 
 	}
 		
