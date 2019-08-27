@@ -1,0 +1,317 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="form_validation.js"></script>
+    <title>Metacube Parking System</title>
+    <style>
+        td,th {
+            font-size: 25px;
+            padding: 20px;
+        }
+
+        form {
+            width: 60%;
+            padding: 40px;
+        }
+        span {
+            font-size: 20px;
+            padding: 15px;
+        }
+        .error{
+            font-size :15px;
+            color: red;
+        }
+    </style>
+    <script>
+
+        var daily;
+        var monthly;
+        var yearly;
+        var registration_id = Math.round(Math.random() * 10000);
+
+        /**
+         * Function for hide employee form and display vehicle form
+        */
+        function emp_details() {
+            document.getElementById("message").innerHTML = "Congratulation You register successfully ! Your registration id : " + registration_id;
+            document.getElementById("emp_form_div").style.display = "none";
+            document.getElementById("vehicle_form_div").style.display = "block";
+
+        }
+
+        /**
+         * Function for hide vehichle form when register button will click and display prices and selected vehicle
+         */
+        function vehicle_details() {
+            document.getElementById("message").innerHTML = "Congratulation You register the vehicle : " + document.getElementById("vehicle_number").value + " Successfully";
+            document.getElementById("vehicle_form_div").style.display = "none"
+            document.getElementById("plan_div").style.display = "block";
+            var vehicle_type = document.getElementById("select_vehicle").value;
+            document.getElementById("selected_vehicle").innerHTML = vehicle_type;
+            switch (vehicle_type) {
+                case "Cycle":
+                    daily = 0.070;
+                    monthly = 1.39;
+                    yearly = 6.96;
+                    break;
+                case "Motorcycle":
+                    daily = 0.14;
+                    monthly = 2.79;
+                    yearly = 13.93;
+                    break;
+                case "Car":
+                    daily = 0.28;
+                    monthly = 6.96;
+                    yearly = 48.75;
+                    break;
+                default:
+                    break;
+            }
+            document.getElementById("sign").innerHTML = "USD"
+            document.getElementById("daily_price").innerHTML = daily;
+            document.getElementById("dprice").value = daily;
+
+            document.getElementById("monthly_price").innerHTML = monthly;
+            document.getElementById("mprice").value = monthly;
+
+            document.getElementById("year_price").innerHTML = yearly;
+            document.getElementById("yprice").value = yearly;
+        }
+        function changeCurrency() {
+            var currencyType = document.getElementById("currency").value;
+            if (currencyType == "INR") {
+                document.getElementById("sign").innerHTML = "INR"
+                document.getElementById("daily_price").innerHTML = convertINR(daily);
+                document.getElementById("dprice").value = convertINR(daily);
+
+                document.getElementById("monthly_price").innerHTML = convertINR(monthly);
+                document.getElementById("mprice").value = convertINR(monthly);
+
+                document.getElementById("year_price").innerHTML = convertINR(yearly);
+                document.getElementById("yprice").value = convertINR(yearly);
+
+            } else if (currencyType == "YEN") {
+                document.getElementById("sign").innerHTML = "YEN"
+                document.getElementById("daily_price").innerHTML = convertYEN(daily);
+                document.getElementById("dprice").value = convertYEN(daily);
+
+                document.getElementById("monthly_price").innerHTML = convertYEN(monthly);
+                document.getElementById("mprice").value = convertYEN(monthly);
+
+                document.getElementById("year_price").innerHTML = convertYEN(yearly);
+                document.getElementById("yprice").value = convertYEN(yearly);
+            } else {
+                document.getElementById("sign").innerHTML = "USD"
+                document.getElementById("daily_price").innerHTML = daily;
+                document.getElementById("dprice").value = daily;
+
+                document.getElementById("monthly_price").innerHTML = monthly;
+                document.getElementById("mprice").value = monthly;
+
+                document.getElementById("year_price").innerHTML = yearly;
+                document.getElementById("yprice").value = yearly;
+            }
+        }
+        /**
+         * Function to convert usd to INR
+         */
+        function convertINR(usd) {
+            return Math.round(71.78 * usd);
+        }
+        /**
+         * Function to convert usd to YEN
+         */
+        function convertYEN(usd) {
+            return Math.round(106.17 * usd);
+        }
+        /**
+         * fUNCTION will used when get pass button click this will show final price of pass
+         */
+        function getPass() {
+            var x;
+            if (document.getElementById('dprice').checked) {
+                x = document.getElementById('dprice').value;
+            } else if (document.getElementById('mprice').checked) {
+                x = document.getElementById('mprice').value;
+            } else {
+                x = document.getElementById('yprice').value;
+            }
+            document.getElementById("message").innerHTML = "Total Price : " + x;
+            document.getElementById("plan_div").style.display = "none";
+        }
+
+    </script>
+</head>
+
+<body>
+    <div align="center">
+        <h1 align="center">Metacube Parking Registration</h1>
+        <hr>
+        <span id="message" style="font-size: 25px"></span>
+        <div id="emp_form_div">
+            <form id="form_emp_details" action="">
+                <table>
+                    <caption style="font-size: 20px">Employee Details</caption>
+                    <tr>
+                        <td>
+                            Full name
+                        </td>
+                        <td>
+                            <input type="text" name="name" placeholder="Full Name" id="name"> <br>
+                            <span class="error" id="ename"></span>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gender </td>
+                        <td>
+                            <input type="radio" name="gender" id="male">
+                            <label for="male">Male</label>
+
+                            <input type="radio" name="gender" id="female">
+                            <label for="female">Female</label>
+
+                            <input type="radio" name="gender" id="other">
+                            <label for="other">Other</label>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="email" name="email" placeholder="Your Email Id" id="email">
+                            <br>
+                            <span class="error" id="eemail"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" name="password" placeholder="password" id="password">
+                            <br>
+                            <span class="error" id="epassword"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Confirm Password</td>
+                        <td><input type="password" name="confirm_password" placeholder="confirm password"
+                                id="confirm_password">
+                                <br>
+                            <span class="error" id="econfirm_password"></span>
+                            
+                            </td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td> <input type="number" name="number" placeholder="phone number" id="number">
+                            <br>
+                            <span class="error" id="enumber"></span>
+                        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="Resiter" onclick="empFormValidation()" id="register_emp">
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
+        <div id="vehicle_form_div" style="display: none">
+            <hr>
+            <form id="form_vehicle_details" action="">
+                <table width="">
+                    <caption style="font-size: 20px">Vehicle Details</caption>
+                    <tr>
+                        <td>
+                            Vehicle Name
+                        </td>
+                        <td>
+                            <input type="text" name="name" value="" placeholder="Full Name" id="vname">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>
+                            <select id="select_vehicle">
+                                <option value="Cycle">Cycle</option>
+                                <option value="Motorcycle">Motor-Cycle</option>
+                                <option value="Car">Car</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Vehicle Number</td>
+                        <td><input type="text" name="vehicle_number" placeholder="vehicle number" id="vehicle_number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Employee Id</td>
+                        <td><input type="text" name="emp_id" placeholder="employee id" id="emp_id"></td>
+                    </tr>
+                    <tr>
+                        <td>Identification</td>
+                        <td> <textarea rows="5" cols="30" name="identification">
+                                   Write here.....
+                                 </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" onclick="vehicle_details()" value="Register Vehicle"
+                                id="register_vehicle"></td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
+        <div id="plan_div" style="display: none">
+            <hr>
+            <div>
+                <h2>Choose Your Plan</h2>
+                <span>Selected Vehicle :</span> <span id="selected_vehicle"></span>
+            </div>
+            <div style="padding: 20px">
+                <span>Change Your Currency :</span>
+                <select name="currency" onchange="changeCurrency()" id="currency">
+                    <option value="USD">USD</option>
+                    <option value="INR">INR</option>
+                    <option value="YEN">YEN</option>
+                </select>
+            </div>
+            <div>
+                <table>
+                    <th>Period</th>
+                    <th>Price(<span id="sign"></span>)</th>
+                    <tr>
+                        <td>
+                            <input type="radio" name="price" value="" id="dprice" checked> Daily
+                        </td>
+                        <td>
+                            <span id="daily_price"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="price" value="" id="mprice"> Monthly
+                        </td>
+                        <td>
+                            <span id="monthly_price"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="price" value="" id="yprice"> Yearly
+                        </td>
+                        <td>
+                            <span id="year_price"></span>
+                        </td>
+                    </tr>
+                </table>
+                <input type="button" onclick="getPass()" value="GET PASS">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
