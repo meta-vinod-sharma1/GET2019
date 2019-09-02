@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/studentFormValidation.js"></script>
+    <title>Student Details</title>
+    <link rel="stylesheet" href="css/form.css">
+
+</head>
+<body>
+	<a href="http://localhost:8080/EAD-Session3/">Back to Home</a>
+    <div align = "center">
+        <h1>Student Details</h1> <hr>
+        <form action="AddStudent"  onsubmit="return studentFormValidation()" method="GET"  >
+            <table>
+                <tr>
+                    <td>First Name</td>
+                    <td><input type="text" name="fname" placeholder="first name" id="fname" >
+                        <br> <span id="efname"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input type="text" name="lname" id="lname" value="" placeholder="last name" >
+                        <br> <span id="elname"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Father Name</td>
+                    <td><input type="text" name="father_name" id="fatherName" value="" placeholder="father name" >
+                        <br> <span id="efatherName"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" name="email" id="email" value="" placeholder="email">
+                        <br> <span id="eemail"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Class</td>
+                    <td><input type="number" name="class" id="classNo" min="1" max="12">
+                        <br> <span id="eclassNo"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td><input type="number" name="age" id="age" min="3" max="35">
+                        <br> <span id="eage"></span>
+                    </td>
+                </tr>              
+            </table>
+            <input type="submit"  value="Submit">
+        </form>
+    </div>
+</body>
+</html>
