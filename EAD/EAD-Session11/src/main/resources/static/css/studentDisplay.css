@@ -1,0 +1,28 @@
+table{
+    width: 100%;
+    font-size: 18px;
+}
+td, th{
+    padding:5px;
+    text-align: center;
+}
+body{
+    background-color: antiquewhite;
+}
+a:link, a:visited {
+  background-color: yellow;
+  color: black;
+  padding: 14px 25px;
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: red;
+}
+span{
+    width: 100%;
+    font-size: 10px;
+    color: red;
+}
