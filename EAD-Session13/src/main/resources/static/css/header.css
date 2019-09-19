@@ -1,0 +1,58 @@
+.logo{
+    margin: auto;
+    width: 100%;
+    font-size: 20px;
+    background-color: antiquewhite;
+}
+.logoBlue{
+    color: rgb(103, 179, 214)
+}
+div ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+div li {
+    float: left;
+  }
+  .log{
+      float: right;
+  }
+  
+ div li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  div li a img{
+  margin-top:2px;
+  margin-right:2px;
+  margin-left:2px;
+  }
+ .imgA{
+ 	display: block;
+    color: white;
+  	text-align: center;
+  	padding:0px;
+    text-decoration: none;
+  }
+  
+ div li a:hover {
+    background-color: #111;
+  }
+body{
+    background-color: antiquewhite;
+}
+.tableDiv{
+    margin:auto;
+    width: 60%;
+}
+td{
+    font-size: 20px;
+    padding: 5px;
+}

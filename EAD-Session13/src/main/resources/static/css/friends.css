@@ -1,0 +1,23 @@
+.tableDiv{
+    width: 60%;
+    margin:auto;
+}
+td{
+    font-size: 20px;
+    height: 60px;
+    vertical-align: center;
+    padding: 10px;
+}
+a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  a:hover {
+    background-color: gray;
+  }
+  body{
+    background-color: antiquewhite;
+}
