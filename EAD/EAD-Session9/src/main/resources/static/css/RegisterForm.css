@@ -1,0 +1,23 @@
+input[type=text],input[type=email], input[type = password],input[type=number],input[type=submit],input[type=button]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+td {
+  height: 70px;
+  vertical-align:center;
+}
+.tableDiv{
+  width: 60%;
+  margin:auto;
+}
+body{
+  background-color: antiquewhite;
+}
+
+span{
+  color: red;
+}

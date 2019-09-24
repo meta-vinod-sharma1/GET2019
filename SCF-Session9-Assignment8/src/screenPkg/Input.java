@@ -45,8 +45,12 @@ public class Input {
 				int y = inputObj.nextInt();
 				return ShapeFactory.createShape(Shape.ShapeType.CIRCLE, new Point(x, y), new ArrayList<Double>(){{add(radius);}});
 			}else if(choice == 4){
-				System.out.println("Please enter base");
-				double base = inputObj.nextDouble();
+				System.out.println("Please side 1 of triagle");
+				double side1 = inputObj.nextDouble();
+				System.out.println("Please side 2 of triagle");
+				double side2 = inputObj.nextDouble();
+				System.out.println("Please side 3 of triagle");
+				double side3 = inputObj.nextDouble();
 				System.out.println("Please enter height");
 				double height = inputObj.nextDouble();
 				System.out.println("Please Enter Points for Origin");
@@ -54,7 +58,7 @@ public class Input {
 				int x = inputObj.nextInt();
 				System.out.println("Yaxis");
 				int y = inputObj.nextInt();
-				return ShapeFactory.createShape(Shape.ShapeType.TRIANGLE, new Point(x, y), new ArrayList<Double>(){{ add(base); add(height);}});
+				return ShapeFactory.createShape(Shape.ShapeType.TRIANGLE, new Point(x, y), new ArrayList<Double>(){{ add(side1); add(side2); add(side3);add(height);}});
 			}else if(choice == 5){
 				System.out.println("Please enter No of Sides of Polygon");
 				double noOfsides = inputObj.nextInt();

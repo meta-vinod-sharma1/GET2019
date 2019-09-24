@@ -52,11 +52,12 @@ public class ScreenTest {
     @Test
     public void triangleTest()
     {
-        Shape triangle = ShapeFactory.createShape(Shape.ShapeType.TRIANGLE, new Point(1, 1), new ArrayList<Double>(){{add(4.0); add(3.0);}});
-        assertEquals(6.0, triangle.getArea(), 0.001);
-        assertEquals(12.0, triangle.getPermiter(), 0.001);
-      //  assertTrue(triangle.isPointEnclosed(new Point(2, 1)));
-      //  assertFalse(triangle.isPointEnclosed(new Point(5, 5)));
+        Shape triangle = ShapeFactory.createShape(Shape.ShapeType.TRIANGLE, new Point(1, 1), new ArrayList<Double>(){{add(4.0); add(3.0); add(2.0); add(1.452);}}); 
+        assertEquals(2.904, triangle.getArea(), 0.001);
+        assertEquals(9.0, triangle.getPermiter(), 0.001);
+        assertTrue(triangle.isPointEnclosed(new Point(2, 1)));
+        assertFalse(triangle.isPointEnclosed(new Point(5, 5)));
+ 
     }
 
     /**

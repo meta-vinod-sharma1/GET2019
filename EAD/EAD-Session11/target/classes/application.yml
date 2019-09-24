@@ -1,0 +1,12 @@
+server:
+ port: 8080
+spring:
+ mvc:
+  view:
+   prefix: /WEB-INF/pages/
+   suffix: .jsp
+
+   
+home:
+ notice : Our School got rank 1 in the state sports tournament
+
