@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/home.css">
+    <script src="js/home.js"></script>
+    <title>Metacube Parking System</title>
+</head>
+
+<body>
+    <!-- Navigation bar-->
+    <div class="nav-bar">
+        <ul>
+            <li><a href="#add_employee">Add Employee </a></li>
+            <li><a href="#add_vehicle">Add Vehicle </a></li>
+            <li><a href="#feedback">Give feedback</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+          <!--  <li id="logo_li"><img src="images/logo.png" alt=""></li> -->
+        </ul>
+    </div>
+    <!-- Div for heading and image -->
+    <div>
+        <img src="images/head_parking.jpg" alt="Parking Image" width="100%">
+    </div>
+    <!-- Div for employee registration -->
+    <div class="form-container" id="add_employee">
+        <button type="button" class="collapsible">Employee Registration Form </button>
+        <!--Form Div For Employee Registration form-->
+        <div class="content">
+            <h2 class="forn-heading">Employee Details -</h2>
+            <form action="" method="post">
+                <div class="form-field">
+                    <label for="full_name">Full Name</label>
+                    <input type="text" name="full_name" id="full_name" placeholder="Your full name" required min="2"
+                        max="30">
+                </div>
+                <div class="form-field">
+                    <label for="gender"> Gender</label>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                    <input type="radio" name="gender" value="other"> Other
+                </div>
+                <div class="form-field">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Your email" required>
+                </div>
+                <div class="form-field">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="password" required>
+                </div>
+                <div class="form-field">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password"
+                        placeholder="confirm your password" required>
+                </div>
+                <div class="form-field">
+                    <label for="contact_number">Contact Number</label>
+                    <input type="text" name="contact_number" id="contact_number" placeholder="contact number" required>
+                </div>
+                <div class="form-field">
+                    <input type="submit" value="Add Employee">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Div for Add Vehicle -->
+    <div id="add_vehicle">
+        <button type="button" class="collapsible">Vehicle Registration Form </button>
+        <div class="content">
+            <h2 class="forn-heading">Vehicle Details -</h2>
+            <form action="" method="post">
+                <div>
+                    <label for="company">Company</label>
+                    <select name="company" id="company_select" required>
+                        <option value="none" selected disabled hidden>Select a Company </option>
+                        <option value="Metacube">Metacube</option>
+                        <option value="Google">Google</option>
+                        <option value="Microsoft">Microsoft</option>
+                        <option value="Uber">Uber</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="vehicle_model">Vehicle Model</label>
+                    <input type="text" name="vehicle_model" id="vehicle_model" placeholder="vehicle model" required
+                        min="2" max="20">
+                </div>
+                <div>
+                    <label for="vehicle_type">Type</label>
+                    <select name="vehicle_type" id="vehicle_type_select">
+                        <option value="none" selected disabled hidden>Select vehicle type </option>
+                        <option value="cycle">Cycle</option>
+                        <option value="motorcycle">Motor-Cycle</option>
+                        <option value="car">Car</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="vehicle_number">Vehicle Number</label>
+                    <input type="text" name="vehicle_number" id="vehicle_number" placeholder="vehicle number" required>
+                </div>
+                <div>
+                    <label for="emp_id">Employee Id</label>
+                    <input type="text" name="emp_id" id="emp_id" required>
+                </div>
+                <div>
+                    <label for="vehicle_identification">Identification</label> <br>
+                    <textarea name="vehicle_identification" id="vehicle_identification" cols="10" rows="5">
+                            </textarea>
+                </div>
+                <div>
+                    <input type="submit" value="Add Vehicle">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Div for Feedback Form -->
+    <div id="feedback">
+        <button type="button" class="collapsible">Get touch with us</button>
+        <div class="content">
+            <div id="image_feedback">
+                <img src="images/email_feedback.jpg" alt="email icon">
+            </div>
+            <div>
+                 <h2 class="forn-heading">Vehicle Details -</h2>
+                    <form action="" method="post">
+                        <div>
+                            <input type="text" name="fullname" id="fullname" placeholder="Full Name">
+                        </div>
+                        <div>
+                            <input type="email" name="email" id="feedback_email" placeholder="Email">
+                        </div>
+                        <div>
+                            <input type="text" name="subject" id="feedback_subject" placeholder="subject">
+                        </div>
+                        <div>
+                            <textarea name="message" id="message" cols="30" rows="10">message</textarea>
+                        </div>
+                        <input type="submit" value="send email">
+                    </form>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <!-- Pricing section -->
+    <div id="pricing">
+       
+        <button type="button" class="collapsible"> Click For Pricing </button>
+        <div class="content">
+             <!--Cycle-->
+            <div class="pricing" id="pricing_cycle">
+                <div id="cycle_daily" class="pricing_box">
+                    <h3>Cycle</h3>
+                    <div class="price_circle">
+                        <span id="cycle_daily_price" class="price_in_circle">$5</span> <br>
+                        <span id="cycle_daily_paln">/daily</span>
+                    </div>
+                    <div class="price-nav">
+                        <a href="#cycle_monthly" class="plan_nav">$100 Monthly</a>
+                        <a href="#cycle_yearly" class="plan_nav">$500 Yearly</a>
+                    </div>
+                    <button type="button" onclick="pricePlan('cycle_daily')"> PURCHASE NOW</button>
+                </div>
+                <!--
+                        <div align="center" id="cycle_monthly" class="pricing_box">
+                            <h3>Cycle</h3>
+                            <div class="price_circle">
+                                <span id="cycle_monthly_price" class="price_in_circle">$100</span> <br>
+                                <span id="cycle_monthly_paln">/month</span>
+                            </div>
+                            <br>
+                            <div>
+                                <a href="#cycle_daily" class="plan_nav">$5 Daily</a> <br>
+                                <a href="#cycle_yearly" class="plan_nav">$500 Yearly</a>
+                            </div>
+                            <button type="button" onclick="pricePlan('cycle_monthly')"> Purchase Now </button>
+                        </div>
+            
+                        <div align="center" id="cycle_yearly" class="pricing_box">
+                            <h3>Cycle</h3>
+                            <div class="price_circle">
+                                <span id="cycle_yearly_price" class="price_in_circle">$100</span> <br>
+                                <span id="cycle_yearly_paln">/Yearly</span>
+                            </div>
+                            <br>
+                            <div>
+                                <a href="#cycle_daily" class="plan_nav">$5 Daily</a> <br>
+                                <a href="#cycle_monthly" class="plan_nav">$100 Monthly</a>
+                            </div>
+                            <button type="button" onclick="pricePlan('cycle_yearly')"> Purchase Now </button>
+                        </div>
+                        -->
+            </div>
+            <!--motor-Cycle-->
+            <div class="pricing" id="pricing_motor">
+                <div id="motor_daily" class="pricing_box">
+                    <h3>Motor-Cycle</h3>
+                    <div class="price_circle">
+                        <span id="motor_daily_price" class="price_in_circle">$10</span> <br>
+                        <span id="motor_daily_paln">/daily</span>
+                    </div>
+                    <div class="price-nav">
+                        <a href="#motor_monthly" class="plan_nav">$200 Monthly</a>
+                        <a href="#motor_yearly" class="plan_nav">$1000 Yearly</a>
+                    </div>
+                    <button type="button" onclick="pricePlan('motor_daily')"> PURCHASE NOW </button>
+                </div>
+                <!--
+                        <div align="center" id="motor_monthly" class="pricing_box">
+                            <h3>Motor-Cycle</h3>
+                            <div class="price_circle">
+                                <span id="motor_monthly_price" class="price_in_circle">$200</span> <br>
+                                <span id="motor_monthly_paln">/month</span>
+                            </div>
+                            <br>
+                            <div>
+                                <a href="#motor_daily" class="plan_nav">$10 Daily</a> <br>
+                                <a href="#motor_yearly" class="plan_nav">$1000 Yearly</a>
+                            </div>
+                            <button type="button" onclick="pricePlan('motor_monthly')"> Purchase Now </button>
+                        </div>
+            
+                        <div align="center" id="motor_yearly" class="pricing_box">
+                            <h3>Motor-Cycle</h3>
+                            <div class="price_circle">
+                                <span id="motor_yearly_price" class="price_in_circle">$1000</span> <br>
+                                <span id="motor_yearly_paln">/Yearly</span>
+                            </div>
+                            <br>
+                            <div>
+                                <a href="#motor_daily" class="plan_nav">$10 Daily</a> <br>
+                                <a href="#motor_monthly" class="plan_nav">$200 Monthly</a>
+                            </div>
+                            <button type="button" onclick="pricePlan('motor_yearly')"> Purchase Now </button>
+                        </div>
+                        -->
+            </div>
+            <!--Car Section-->
+            <div class="pricing" id="pricing_car">
+                <div id="motor_daily" class="pricing_box">
+                    <h3>Car</h3>
+                    <div class="price_circle">
+                        <span id="motor_daily_price" class="price_in_circle">$20</span> <br>
+                        <span id="motor_daily_paln">/daily</span>
+                    </div>
+                    <div class="price-nav">
+                        <a href="#motor_monthly" class="plan_nav">$500 Monthly</a>
+                        <a href="#motor_yearly" class="plan_nav">$3500 Yearly</a>
+                    </div>
+                    <button type="button" onclick="pricePlan('motor_daily')"> PURCHASE NOW </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
