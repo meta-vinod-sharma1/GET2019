@@ -1,6 +1,20 @@
+/* roboto-regular - latin-ext */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/roboto-v20-latin-ext-regular.eot'); /* IE9 Compat Modes */
+    src: local('Roboto'), local('Roboto-Regular'),
+         url('../fonts/roboto-v20-latin-ext-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/roboto-v20-latin-ext-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/roboto-v20-latin-ext-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/roboto-v20-latin-ext-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/roboto-v20-latin-ext-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+  }
 body,html{
     height: 100%;
     margin: 0;
+    font-family: 'Roboto';
 }
 .background-image{
     /* The image used */
@@ -70,6 +84,7 @@ body,html{
 }
 #cover_section{
     width:100%;
+    height: auto;
 }
 .cover-div{
    width: 40%;
@@ -82,14 +97,15 @@ body,html{
 .cover-div1 img{
     padding-top: 120px;
     padding-right: 160px;
+    width: 400px;
     float:right;
 }
 .cover-div h1{
     padding-top: 65px;
     float: right;
     color: aliceblue;
-    font-size: 55px;
-    margin-right: 30px;
+    font-size: 50px;
+    margin-right: 45px;
 }
 .cover-div ul{
     float: right;
@@ -166,31 +182,45 @@ hr{
     margin: 0;
     margin-top: 400px;
     width: 100%;
+    position: relative;
 }
 .feature-image-slider img{
     margin: 0;
+    display: flex;
+    float: left;
 }
 #slide-1-image{
-
+    margin-left: 150px;
     width: 200px;
+    position: absolute;
+    transform: skewY(8deg);
 }
 #slide-2-image{
+    margin-left: 320px;
     width: 250px;
+    transform: skewY(8deg);
 }
 #slide-3-image{
     width: 290px;
 }
 #slide-4-image{
     width: 250px;
+    margin-left: 860px;
+    position: absolute;
+    float: left;
+    transform: skewY(-8deg);
 }
 #slide-5-image{
+    float: right;
+    margin-right: 280px;
     width: 200px;
+    transform: skewY(-8deg);
 }
 #Screenshot-section{
     width: 80%;
     margin:auto;
     text-align: center;
-    margin-top:100px;
+    margin-top:600px;
 }
 
 .heading{
@@ -254,7 +284,7 @@ hr{
         margin-top:100px;
 }
 .review-row{
-    margin-left: 0px;
+    margin-left: 150px;
     margin-top: 70px;
 }
 .review-col{
@@ -290,7 +320,7 @@ hr{
         width: 100%;
         margin:auto;
         text-align: center;
-        margin-top:550px;
+        margin-top:610px;
         margin-bottom: 0px;
         display: flex;
         
@@ -298,19 +328,20 @@ hr{
 #download-app-section div{
     margin: 100px;
     margin-bottom: 0px;
-  width: 40%;
+    width: 40%;
 
 }
 .app-download-div h1{
+    padding-top: 50px;
     text-align: start;
     color: aliceblue;
-    font-size: 35px;
+    font-size: 25px;
 }
 .app-download-div p{
     text-align: start;
     color: aliceblue;
-    font-size: 20px;
-    padding-right:110px; 
+    font-size: 17px;
+    padding-right:250px; 
 }
 .app-download-div img{
     float: left;
@@ -328,7 +359,8 @@ hr{
     background-color: #3B3C53;
 }
 #download-below-img{
-    width: 600px;
+    height: 350px;
+    margin-top: 150px;
 }
 #rights{
     margin: 0;
@@ -354,10 +386,12 @@ hr{
     margin-left: 150px;  
 }
 #rights_div{
+    width: 74%;
+    margin: auto;
     margin-top: 100px;
-    border-top: 1px solid rgb(8, 20, 53);
-    width: 100%;
-    text-align: center
+    border-top: 1px solid rgb(136, 136, 130);
+    text-align: center;
+    color:rgb(136, 136, 130);
 }
 #rights{
     padding: 5px;
