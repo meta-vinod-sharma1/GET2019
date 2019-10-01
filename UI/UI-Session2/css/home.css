@@ -1,0 +1,223 @@
+body{
+    background-color:rgb(193, 198, 201)
+}
+/* Header CSS  */
+.fixed-head{
+        width: 100%; /* Full width */
+}
+.fixed-head h1{
+    
+    font-size: 20px;
+    text-align: left;
+}
+.nav-bar {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+    background-color: rgb(9, 19, 41);
+  }
+  .nav-bar ul{
+      margin: 0;
+  }
+  .nav-bar li{
+    float: left;
+    list-style-type: none;
+
+    
+  }
+  .nav-bar a {
+    padding: 14px 16px;
+    display: block;
+    color: rgb(240, 212, 212);
+    text-decoration: none;
+    
+    
+    text-decoration: none;
+    font-size: 17px;
+  }
+  #logo_li{
+    float: right;
+   
+  }
+  .nav-bar img{
+    background-color: #f1f1f1;
+    padding-right:20px; 
+    height: 46px;
+  }
+  
+  .nav-bar a:hover {
+    background: #ddd;
+    color: black;
+  }
+.cube-logo{
+    color: rgb(29, 77, 207);
+}
+
+
+/* Form Css*/
+.form-container{
+    width: 100%;
+}
+
+.collapsible {
+    background-color: rgb(9, 19, 41);
+    color: rgb(240, 212, 212);
+    cursor: pointer;
+    padding: 18px;
+    padding-left: 50px;
+    width: 100%;
+    border: solid rgb(9, 19, 41)3px;
+    border-radius: 10px;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  .active, .collapsible:hover {
+    background: #ddd;
+    color: black;
+  }
+  .content {
+    margin: 2px;
+    padding: 50px 18px;
+    display: none;
+    border: solid rgb(9, 19, 41) 2px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+
+  /* for input fields*/
+  input[type=text] {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 15px 0;
+    box-sizing: border-box;
+    border: none;
+    border: solid rgb(9, 19, 41) 1px;
+    border-radius: 10px;
+    background-color: white;
+    color: grey;
+  }
+  input[type=email] {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border: solid rgb(9, 19, 41) 1px;
+    border-radius: 10px;
+    background-color: white;
+    color: grey;
+  }
+  input[type=password] {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: solid rgb(9, 19, 41) 1px;
+    border-radius: 10px;
+    background-color: white;
+    color: grey;
+  }
+  select {
+    width: 20%;
+    padding: 12px 20px;
+    border: solid rgb(9, 19, 41) 1px;
+    border-radius: 10px;
+    background-color: white;
+  }
+  input[type=submit] {
+    background-color: rgb(9, 19, 41); /* Green */
+    border: solid rgb(9, 19, 41) 1px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 10px 24px;
+  }
+ .form-field {
+     margin: 20px;
+      font-size: 15 px;
+  }
+ .text-area{
+    width: 100%;
+
+ }
+  textarea {
+    width: 20%;
+    height: 100px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: none;
+    border: solid rgb(9, 19, 41) 1px;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 16px;
+    resize: none;
+  }
+  .form-heading{
+      margin:5px;
+      color: rgb(9, 19, 41);
+      font-size: 20px;
+  }
+  #image_feedback{
+    width: 70%;
+    float: left;
+  }
+.pricing_box {
+    text-align: center;
+    margin: 10px;
+}
+.pricing_box button{
+    margin: 5px;
+    background-color: white; /* Green */
+    border: solid rgb(9, 19, 41) 1px;
+    border-radius: 2px;
+    color: rgb(9, 19, 41);
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 8px 16px;
+}
+.pricing{
+    text-align: center;
+    margin: auto;
+    margin-left: 30px;
+    margin-right: 20px;
+    float: left;
+    width: 20%;
+    border: solid rgb(9, 19, 41) 3px;
+    border-radius: 10px;
+}
+.price_circle {
+    margin: auto;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border: solid rgb(9, 19, 41) 1px;
+    border-radius: 35px ;
+}
+.price-nav{
+    margin-top: 5px;
+    
+}
+.price-nav  a{
+    color: rgb(179, 170, 170);
+    text-decoration: none;
+    padding-top:2px; 
+    display: block;
+}
+
+.price_in_circle {
+    font-size: 20px;
+    font-weight: bold;
+}
