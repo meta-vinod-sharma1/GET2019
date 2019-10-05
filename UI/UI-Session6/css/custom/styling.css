@@ -1,4 +1,14 @@
 
+/* Custom CSS File for Dash Board */
+.nav-item-my{
+    list-style-type: none;
+    padding: 8px;
+    padding-left: 40px;
+    font-size: 16px;
+}
+.nav-item-my{
+    background: #5b6be8;
+}
 .annex-a{
     font-size: 30px;
 }
