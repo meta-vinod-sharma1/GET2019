@@ -1,0 +1,17 @@
+.col-md-2{
+    background-color: rgb(235, 225, 225);
+    text-align: center;
+    min-height: 600px;
+}
+.my-hr{
+    border: 1px solid rgb(197, 193, 193);
+    width: 80%;
+    margin:auto;
+    margin-top:2px;
+    margin-bottom: 16px;
+}
+.my-top-div{
+    width: 80%;
+    margin:auto;
+    margin-top: 20px;
+}
