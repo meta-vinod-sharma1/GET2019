@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function Node(data) {
+            this.data = data;
+            this.next = null;
+        }
+        
+        function LinkedList() {
+            this.head = null;
+        }
+
+        LinkedList.prototype.add = function (data) {
+
+            var newNode = new Node(data);
+            if (this.head == null) {
+                this.head = newNode;
+            }
+            else {
+                var current = this.head;
+                while (current.next != null) {
+                    current = current.next;
+                }
+
+                current.next = newNode;
+            }
+
+        }
+
+        LinkedList.prototype.delete = function () {
+            var current = this.head;
+            var pre = null;
+            while (current.next != null) {
+                pre = current;
+                current = current.next;
+            }
+
+            if (current == this.head) {
+                this.head = null;
+            } else {
+                pre.next = null;
+            }
+        }
+
+        LinkedList.prototype.printList = function () {
+            var current = this.head;
+            var string = "";
+            while (current != null) {
+                string += current.data + " ";
+                current = current.next;
+            }
+            console.log(string);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
