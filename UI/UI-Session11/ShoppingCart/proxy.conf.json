@@ -1,0 +1,7 @@
+{
+  "/api/item": {
+    "target": "http://localhost:8080/EAD-Session6A",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

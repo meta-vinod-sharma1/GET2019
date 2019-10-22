@@ -1,0 +1,26 @@
+<div class="container">
+        <h2 class="">My Orders</h2>
+        <div class="container-fluid border rounded">
+            <div  *ngIf="(orderList.length < 1); else elseBlock" class="text-center">
+                <h1 class="h1 m-5">No Orders</h1>
+                <h2 class="h4 m-5"><a class="btn btn-info" routerLink="/" routerLinkActive="active">click here to Order</a></h2>
+            </div>
+            <ng-template #elseBlock>
+                <div class="">
+                    <table class="table table-striped">
+                        <th></th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>price </th>
+                        <th>Status </th>
+                        <tr *ngFor="let orderItem of orderList">
+                            <td><img class="img-circle" src="assets/images/{{orderItem.item.imgUrl}}.jpg" alt="" width="100px"></td>
+                            <td>{{orderItem.item.name}}</td>
+                            <td>{{orderItem.qty}} </td>            
+                            <td>{{orderItem.item.price * orderItem.qty}}</td>
+                            <td>Ordered</td>
+                        </tr>
+                    </table>
+                </div>
+            </ng-template>
+</div>
