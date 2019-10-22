@@ -1,0 +1,32 @@
+<div class="my-margin container my-margin">
+    <h2 class="">Shopping Cart</h2>
+    <div class="container-fluid border rounded">
+        <div  *ngIf="(cartList.length < 1); else elseBlock" class="text-center">
+            <h1 class="h1 m-5">No items in Cart</h1>
+            <h2 class="h4 m-5"><a class="btn btn-info" href="/">click here to add</a></h2>
+        </div>
+        <ng-template #elseBlock>
+            <div class="">
+                <table class="table table-striped">
+                    <th></th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>price
+                    </th>
+                    <tr *ngFor="let cartItem of cartList">
+                        <td><img class="img-circle" src="assets/images/{{cartItem.item.imgUrl}}.jpg" alt="" width="100px"></td>
+                        <td>{{cartItem.item.name}}</td>
+                        <td><button class="btn-sm btn-info" (click)="decreaseQty(cartItem.item.id)">-</button> <span
+                                class="px-4 border">{{cartItem.qty}} in cart</span>
+                            <button class="btn-sm btn-info " (click)="increaseQty(cartItem.item.id)">+</button></td>
+                        <td>{{cartItem.item.price * cartItem.qty}}</td>
+
+                    </tr>
+
+                </table>
+                <a routerLink="/shipping" routerLinkActive="active"  class="btn btn-primary">Check Out</a>
+            </div>
+        </ng-template>
+
+    </div>
+</div>

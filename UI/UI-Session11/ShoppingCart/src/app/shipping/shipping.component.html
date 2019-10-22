@@ -1,0 +1,41 @@
+<div class="container">
+        <div class="row my-margin">
+                <h2 class="container-fluid ">Shipping</h2>
+                <div class="col-sm-6 mt-3 ">
+                    <form action="/action_page.php">
+                        <div class="form-group">
+                          <label for="name">Name:</label>
+                          <input type="text" class="form-control" id="name" placeholder="your name">
+                        </div>
+                        <div class="form-group">
+                          <label for="line1">Address:</label>
+                          <input type="text" class="form-control" id="line1" placeholder="line1">
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="line1" placeholder="line2">
+                        </div>
+                        <div class="form-group">
+                            <label for="line1">City :</label>
+                            <input type="text" class="form-control" id="line1" placeholder="line1">
+                          </div>
+                          <a class="btn btn-primary" (click) = "order($event)"  routerLink="/thanks" routerLinkActive="active">Order</a>
+                      </form>     
+                </div>
+                <div class="col-sm-5 m-auto mt-3 border rounded">
+                        <h2>Order Summry</h2>
+                        <p>You have {{0}} items in  your shopping cart</p>          
+                        <table class="table">
+                            <tr *ngFor = "let order of cartList">
+                                <td>{{order.qty}} x {{order.item.name}}</td>
+                                <td>${{order.item.price * order.qty}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Total</b></td>
+                                <td><b>${{netAmountCalc()}}</b></td>
+                            </tr>
+                          
+                        </table>
+                </div>
+            </div>            
+</div>

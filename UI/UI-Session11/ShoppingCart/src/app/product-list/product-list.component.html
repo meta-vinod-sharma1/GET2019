@@ -1,0 +1,24 @@
+
+    <div class="row mt-5">
+        <div class="col-sm-3 mt-5 ">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-sm-9 ">
+                <div  *ngIf="(items.length < 1); else elseBlock" class="text-left">
+                        <h1 class="h4 m-5">No items of this category right now </h1>
+                    </div>
+                    <ng-template #elseBlock>
+                            <div class="row">
+                                    <div *ngFor="let item of items" class="col-sm-4 mt-5 ml-5 content border rounded ">
+                                            <a class="link m-0" href="#"> <img class="img-fluid" src="assets/images/{{item.imgUrl}}.jpg" alt=""
+                                                    srcset=""></a>
+                                            <h2 class="ml-4 pl-4">{{item.name}}</h2>
+                                            <span class="ml-4 pl-4">${{item.price}}</span>
+                                            <button class="btn-block p-2 btn-secondary" (click)="addCart(item.id)">Add to Cart</button>
+                                        </div>
+                            </div>
+                        
+                    </ng-template>
+            
+        </div>
+    </div>

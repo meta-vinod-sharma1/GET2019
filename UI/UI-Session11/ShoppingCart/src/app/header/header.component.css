@@ -1,0 +1,30 @@
+.cart-logo{
+    font-size: 30px;
+    margin:0;
+    margin-left: 15px;
+    padding-left: 15px;
+    padding-top:10px;
+    padding-right: 4px;
+    color: black;
+}
+.badge-cart{
+    font-size: 10px;
+    color: black;
+    background-color: rgb(194, 183, 36);
+}
+
+.nav-border{
+    border-bottom: 2px solid rgb(204, 201, 201);
+}
+.home-logo{
+    font-size: 35px;
+    margin:0;
+    padding-top:9px;
+    color: black;
+}
+.user-logo{
+    font-size: 28px;
+    margin:0;
+    padding-top:9px;
+    color: black;
+}
