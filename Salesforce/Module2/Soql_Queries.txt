@@ -7,7 +7,7 @@ Query 1:
 
 Query 2:
 	SELECT FirstName__c,Name, Class__r.Name FROM Student__c 
-	WHERE Class__r.Name LIKE '10%'
+	WHERE Class__r.Name LIKE 'X%'
 
 Query 3:
 	SELECT FirstName__c,LastName__c, Class__r.Name FROM Student__c 
@@ -33,11 +33,10 @@ Query 8:
 	(SELECT Class__c FROM Student__c WHERE FirstName__c LIKE 'S%')
 	
 Query 9: 
-	SELECT Name FROM Contact WHERE id IN (SELECT Teacher__c from Teach__c WHERE subject__c = 'Hindi') AND id IN (SELECT Teacher__c from Teach__c WHERE subject__c = 'English') 
-	
+	SELECT Teacher__r.Name FROM Teach__c WHERE Subject__c INCLUDES ('Hindi;English')
 Query 10:
-	SELECT FirstName__c, Name FROM Student__c
-	WHERE Class__c IN (SELECT class__c from Teach__c WHERE Subject__c='Hindi' OR Subject__c='Science')
+	SELECT   FirstName__c,Class__r.Name   FROM Student__c
+	WHERE Class__c IN (SELECT class__c from Teach__c WHERE Subject__c='Hindi' OR Subject__c='Math')
 
 Query 11:
 	SELECT Name, NumberOfStudents__c FROM Class__c
@@ -55,4 +54,4 @@ Query 1:
 	FIND {Joe} IN ALL FIELDS RETURNING Contact(Name),Student__c(FirstName__c)
 
 Query 2:
-	FIND {student} IN ALL FIELDS RETURNING Student__c(FirstName__c,LastName__c Where Sex__c = 'Male')
+	FIND {Joe} IN ALL FIELDS RETURNING Student__c(FirstName__c,LastName__c Where Sex__c = 'Male')
