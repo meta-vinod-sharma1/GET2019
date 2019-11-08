@@ -1,0 +1,57 @@
+					SOQL:
+
+Query 1:
+	SELECT FirstName__c, LastName__c, DOB__c, Sex__c 
+	FROM Student__c 
+	WHERE Name LIKE 'S%''
+
+Query 2:
+	SELECT FirstName__c,Name, Class__r.Name FROM Student__c 
+	WHERE Class__r.Name LIKE 'X%'
+
+Query 3:
+	SELECT FirstName__c,LastName__c, Class__r.Name FROM Student__c 
+
+Query 4:
+	SELECT Name , (SELECT FirstName__c, LastName__c FROM Students__r) FROM Class__c
+
+Query 5: 
+	SELECT FirstName__c, Class__r.ClassTeacher__r.Name 
+	FROM Student__c
+	WHERE CLass__r.ClassTeacher__r.Name LIKE 'S%'
+
+Query 6:
+	SELECT FirstName__c,LastName__c
+	FROM Student__c
+	WHERE CALENDAR_YEAR(DOB__c) > 2000
+
+Query 7: 
+	 SELECT LastModifiedDate,Name FROM Lead Where LastModifiedDate > THIS_MONTH
+	 
+Query 8: 
+	SELECT Name, (SELECT FirstName__c FROM Students__r WHERE FirstName__c LIKE 'S%') FROM Class__c WHERE id IN 
+	(SELECT Class__c FROM Student__c WHERE FirstName__c LIKE 'S%')
+	
+Query 9: 
+	SELECT Teacher__r.Name FROM Teach__c WHERE Subject__c INCLUDES ('Hindi;English')
+Query 10:
+	SELECT   FirstName__c,Class__r.Name   FROM Student__c
+	WHERE Class__c IN (SELECT class__c from Teach__c WHERE Subject__c='Hindi' OR Subject__c='Math')
+
+Query 11:
+	SELECT Name, NumberOfStudents__c FROM Class__c
+
+	&&
+
+	SELECT Class__r.Name,count(Name) FROM Student__c Group BY Class__r.Name
+	
+Query 12:
+	 SELECT CALENDAR_MONTH(DOB__c), COUNT(DOB__c) FROM Student__c GROUP BY CALENDAR_MONTH(DOB__c)
+					 
+						
+						SOSL:
+Query 1:
+	FIND {Joe} IN ALL FIELDS RETURNING Contact(Name),Student__c(FirstName__c)
+
+Query 2:
+	FIND {Joe} IN ALL FIELDS RETURNING Student__c(FirstName__c,LastName__c Where Sex__c = 'Male')
